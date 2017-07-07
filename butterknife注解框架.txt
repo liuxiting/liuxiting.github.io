@@ -1,0 +1,45 @@
+android 快速开发之--butterknife注解
+
+原生的android 布局实例化是这样的
+
+
+使用注解前需要导入依赖
+
+-------------------------
+ 1，在project的builde.gradle的dependencies 节点中
+ 加上：
+ classpath 'com.jakewharton:butterknife-gradle-plugin:8.6.0'
+  2，在app的builde.gradle的dependencies节点中
+  compile 'com.jakewharton:butterknife:8.6.0'
+  annotationProcessor 'com.jakewharton:butterknife-compiler:8.6.0'
+  3，在app的builde.gradle配置文件的最上面加入
+  apply plugin: 'com.jakewharton.butterknife'
+  完成
+--------------------------------------
+
+加入注解就会变得简单，高效，代码量小,
+再也不会出现像 findviewById这样的代码了
+而且这个框架也提供了很多有用的注解
+
+butterknife注解
+简单，实用 ，不必担性能问题，
+
+ButterKnife.bind(this);
+
+对一个view进行转换为特定的子类
+
+@BindView(R.id.title) TextView title;
+
+在非Activity中使用绑定，比如在fragment中使用
+只要传入根布局就可以
+ ButterKnife.bind(this, view);
+ 
+ 
+ 监听器绑定
+ 使用本框架，监听器能够自动的绑定到特定的执行方法上：
+ 不再需要操作
+@OnClick(R.id.submit)
+public void onClick(View view) {
+  // TODO submit data to server...
+  
+}
